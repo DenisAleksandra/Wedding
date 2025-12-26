@@ -451,9 +451,10 @@
 </head>
 <body>
     <!-- Фоновое аудио -->
-    <audio id="bgAudio" loop preload="auto">
+    <audio id="bgAudio" loop preload="auto" volume="0.7">
         <source src="./Rick Astley - Never Gonna Give You Up.mp3" type="audio/mpeg">
         <source src="Rick Astley - Never Gonna Give You Up.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
     </audio>
 
     <!-- Header Section with Video Background -->
@@ -479,6 +480,11 @@
 
         <!-- Индикация скролла -->
         <div class="scroll-indicator">↓</div>
+        
+        <!-- Кнопка запуска музыки -->
+        <button id="playMusicBtn" style="position: absolute; top: 20px; right: 20px; z-index: 10; background: rgba(212, 175, 55, 0.9); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.3s;">
+            ♪
+        </button>
     </section>
 
     <!-- Location and Timeline Section -->
@@ -615,6 +621,7 @@
     </section>
 
     <script>
+
         // URL Parameter handling for personalized invitations
         function getURLParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -719,58 +726,41 @@
                 video.addEventListener('canplay', () => console.log('Видео готово к воспроизведению'));
             }
 
-            // Audio autoplay handling
+            // Простая кнопка для запуска музыки
             const audio = document.getElementById('bgAudio');
+            const playBtn = document.getElementById('playMusicBtn');
 
-            if (audio) {
-                // Функция для запуска аудио
-                function playAudio() {
-                    if (audio && audio.paused) {
-                        const playPromise = audio.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(error => {
-                                console.log('Автоплей аудио заблокирован:', error);
+            if (audio && playBtn) {
+                // Устанавливаем громкость
+                audio.volume = 0.7;
+
+                // Обработчик клика по кнопке
+                playBtn.addEventListener('click', function() {
+                    if (audio.paused) {
+                        audio.play()
+                            .then(() => {
+                                console.log('✅ Музыка запущена');
+                                this.style.display = 'none';
+                            })
+                            .catch(error => {
+                                console.error('❌ Ошибка запуска музыки:', error);
                             });
-                        }
                     }
-                }
-
-                // Попытка запуска при различных событиях загрузки
-                audio.addEventListener('loadeddata', playAudio);
-                audio.addEventListener('canplay', playAudio);
-                audio.addEventListener('canplaythrough', playAudio);
-                audio.addEventListener('loadedmetadata', playAudio);
-
-                // Попытка запустить сразу после небольшой задержки
-                setTimeout(playAudio, 200);
-
-                // Гарантированный запуск аудио при первом взаимодействии пользователя
-                const userInteractionEvents = ['click', 'touchstart', 'keydown', 'scroll', 'mousemove'];
-                let hasInteracted = false;
-
-                userInteractionEvents.forEach(eventType => {
-                    document.addEventListener(eventType, function() {
-                        if (!hasInteracted) {
-                            hasInteracted = true;
-                            playAudio();
-                        }
-                    }, { once: true });
                 });
 
-                // Также запускаем при любом клике/тапе
-                document.addEventListener('click', playAudio);
-                document.addEventListener('touchstart', playAudio, { passive: true });
-
-                // Обработка ошибок загрузки
-                audio.addEventListener('error', function(e) {
-                    console.error('Ошибка загрузки аудио:', e);
-                    console.log('Проверьте путь к файлу: Rick Astley - Never Gonna Give You Up.mp3');
+                // Скрываем кнопку когда музыка играет
+                audio.addEventListener('play', () => {
+                    playBtn.style.display = 'none';
                 });
 
-                // Логирование для отладки
-                audio.addEventListener('loadstart', () => console.log('Аудио начало загружаться'));
-                audio.addEventListener('loadeddata', () => console.log('Аудио данные загружены'));
-                audio.addEventListener('canplay', () => console.log('Аудио готово к воспроизведению'));
+                // Показываем кнопку когда музыка останавливается
+                audio.addEventListener('pause', () => {
+                    playBtn.style.display = 'block';
+                });
+
+                audio.addEventListener('ended', () => {
+                    playBtn.style.display = 'block';
+                });
             }
         });
 
@@ -787,7 +777,9 @@
                 video.play().catch(() => {});
             }
             if (audio && audio.paused) {
-                audio.play().catch(() => {});
+                audio.play().catch((error) => {
+                    console.log('Не удалось запустить аудио при клике на скролл:', error);
+                });
             }
         });
 

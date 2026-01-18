@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,10 +15,25 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+            color: #8C867A;
             overflow-x: hidden;
+            background-image: url('./narisovan2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant', serif;
+            color: #4A4741;
+        }
+
+        strong {
+            color: #4A4741;
         }
 
         /* Header Section with Video Background */
@@ -71,13 +89,7 @@
         }
 
         .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 0;
+            display: none;
         }
 
         .header-content {
@@ -132,7 +144,7 @@
             font-size: clamp(2rem, 5vw, 3.5rem);
             text-align: center;
             margin-bottom: 50px;
-            color: #2c3e50;
+            color: #4A4741;
             position: relative;
             padding-bottom: 20px;
         }
@@ -149,36 +161,34 @@
         }
 
         /* Location and Timeline Section */
+
         .location-timeline {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            justify-content: center;
             gap: 40px;
             margin-top: 40px;
-        }
-
-        @media (min-width: 768px) {
-            .location-timeline {
-                grid-template-columns: 1fr 1fr;
-            }
         }
 
         .location-box, .timeline-box {
             background: #f9f9f9;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            color: #8C867A;
         }
 
         .location-box h3, .timeline-box h3 {
             font-size: clamp(1.5rem, 3vw, 2rem);
             margin-bottom: 20px;
-            color: #2c3e50;
+            color: #4A4741;
         }
 
         .map-container {
             width: 100%;
             height: 300px;
-            border-radius: 8px;
+            border-radius: 0;
             overflow: hidden;
             margin-top: 15px;
         }
@@ -203,7 +213,7 @@
             width: 12px;
             height: 12px;
             background: #d4af37;
-            border-radius: 50%;
+            border-radius: 0;
         }
 
         .timeline-item::after {
@@ -237,6 +247,8 @@
             grid-template-columns: 1fr;
             gap: 30px;
             margin-top: 40px;
+            align-items: stretch;
+            grid-auto-rows: 1fr;
         }
 
         @media (min-width: 768px) {
@@ -254,10 +266,14 @@
         .program-card {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 0;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 200px;
         }
 
         .program-card:hover {
@@ -267,12 +283,14 @@
         .program-card h4 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #2c3e50;
+            flex-shrink: 0;
         }
 
         .program-card p {
             color: #666;
             line-height: 1.8;
+            flex-grow: 1;
+            margin: 0;
         }
 
         /* Dress Code Section */
@@ -282,14 +300,13 @@
             text-align: center;
             background: #f9f9f9;
             padding: 40px;
-            border-radius: 10px;
+            border-radius: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .dresscode-content h3 {
             font-size: clamp(1.5rem, 3vw, 2rem);
             margin-bottom: 20px;
-            color: #2c3e50;
         }
 
         .dresscode-content p {
@@ -310,7 +327,7 @@
         .color-box {
             width: 80px;
             height: 80px;
-            border-radius: 50%;
+            border-radius: 0;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -320,7 +337,7 @@
             margin: 40px auto 0;
             background: #f9f9f9;
             padding: 40px;
-            border-radius: 10px;
+            border-radius: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
@@ -332,7 +349,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: #2c3e50;
+            color: #4A4741;
         }
 
         .form-group input,
@@ -341,7 +358,7 @@
             width: 100%;
             padding: 12px;
             border: 2px solid #ddd;
-            border-radius: 5px;
+            border-radius: 0;
             font-size: 1rem;
             font-family: inherit;
             transition: border-color 0.3s ease;
@@ -365,7 +382,7 @@
             background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 0;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
@@ -395,7 +412,7 @@
         .form-message {
             margin-top: 20px;
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 0;
             text-align: center;
             display: none;
         }
@@ -459,21 +476,15 @@
 
     <!-- Header Section with Video Background -->
     <section class="header-section">
-        <!-- Видео на фоне -->
-        <video id="bgVideo" autoplay muted loop playsinline preload="auto" class="video-background" webkit-playsinline>
-            <source src="./IMG_0341.MP4" type="video/mp4">
-            <source src="IMG_0341.MP4" type="video/mp4">
-            <source src="./IMG_0341.mp4" type="video/mp4">
-            <source src="IMG_0341.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
+        <!-- Изображение на фоне -->
+        <img src="./narisovan.jpg" alt="Фон" class="video-background">
 
         <!-- Полупрозрачный overlay для текста -->
         <div class="header-overlay"></div>
 
         <!-- Текст поверх видео -->
         <div class="header-content">
-            <h1>Мы будем рады видеть тебя на нашей свадьбе!</h1>
+            <h1>Будь с нами в этот день!</h1>
             <p style="font-size: clamp(1rem, 3vw, 1.8rem); margin-top: 20px;">Денис и Александра</p>
             <p style="font-size: clamp(0.9rem, 2.5vw, 1.5rem); margin-top: 10px;">28 июля 2026 года</p>
         </div>
@@ -489,48 +500,21 @@
 
     <!-- Location and Timeline Section -->
     <section class="section" id="location-timeline">
-        <h2 class="section-title">Место и Время</h2>
+        <h2 class="section-title">Место проведения</h2>
         <div class="location-timeline">
             <div class="location-box">
-                <h3>📍 Место проведения</h3>
-                <p><strong>The Sun</strong></p>
+                <h3>📍 The Sun lake</h3>
                 <p>Московская область, г.Солнечногорск</p>
                 <p>Тимоновское шоссе, 36</p>
                 <div class="map-container">
-                    <!-- Обновите ссылку на карту, получив её из Google Maps: найдите адрес, нажмите "Поделиться" > "Встроить карту" -->
                     <iframe 
-                        src="https://www.google.com/maps?q=Тимоновское+шоссе+36,+Солнечногорск&output=embed"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
+                        src="https://yandex.ru/map-widget/v1/-/CLh8qJOP"
+                        width="100%"
+                        height="100%"
+                        frameborder="0"
+                        allowfullscreen="true"
+                        loading="lazy">
                     </iframe>
-                </div>
-            </div>
-            <div class="timeline-box">
-                <h3>⏰ Программа дня</h3>
-                <div class="timeline-item">
-                    <div class="timeline-time">14.30</div>
-                    <div class="timeline-event">Апперетив</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">16.00</div>
-                    <div class="timeline-event">Церемония</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">16.30</div>
-                    <div class="timeline-event">Фотографии</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">17.30</div>
-                    <div class="timeline-event">Ужин</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">20.00</div>
-                    <div class="timeline-event">Дискотека</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">21.30</div>
-                    <div class="timeline-event">Торт</div>
                 </div>
             </div>
         </div>
@@ -541,28 +525,28 @@
         <h2 class="section-title">Программа дня</h2>
         <div class="program-grid">
             <div class="program-card">
-                <h4>🥂 Апперетив</h4>
-                <p>Присоединяйтесь к нам за бокалом шампанского и легкими закусками.</p>
+                <h4>Встреча гостей</h4>
+                <p>В <strong>14:30</strong> присоединяйтесь к нам за бокалом шампанского и легкими закусками.</p>
             </div>
             <div class="program-card">
-                <h4>💒 Церемония</h4>
+                <h4>Церемония</h4>
                 <p>Станьте свидетелями нашего особенного момента, когда мы обменяемся клятвами.</p>
             </div>
             <div class="program-card">
-                <h4>📸 Фотографии</h4>
-                <p>Запечатлеем незабываемые моменты вместе с вами.</p>
+                <h4>Ужин</h4>
+                <p>Тёплая атмосфера и время вместе.</p>
             </div>
             <div class="program-card">
-                <h4>🍽️ Ужин</h4>
-                <p>Отпразднуем вместе за праздничным столом с тостами и теплой атмосферой.</p>
+                <h4>Вечеринка</h4>
+                <p>Куда же без танцев!:)</p>
             </div>
             <div class="program-card">
-                <h4>💃 Дискотека</h4>
-                <p>Танцуйте всю ночь и создавайте незабываемые воспоминания!</p>
+                <h4>Торт</h4>
+                <p>Разделите с нами момент, когда мы разрежем свадебный торт.</p>
             </div>
             <div class="program-card">
-                <h4>🎂 Торт</h4>
-                <p>Разделите с нами сладкий момент, когда мы разрежем свадебный торт.</p>
+                <h4>Финал вечера</h4>
+                <p>В <strong>23:00</strong> мы будем постепенно завершать праздник.</p>
             </div>
         </div>
     </section>
@@ -572,10 +556,9 @@
         <h2 class="section-title">Дресс-код</h2>
         <div class="dresscode-content">
             <h3>Торжественный стиль</h3>
-            <p>Мы будем рады видеть наших гостей в элегантных нарядах.</p>
-            <p><strong>Дамы:</strong> Коктейльные платья или вечерние наряды</p>
+            <p>Мы очень старались создать особую атмосферу тепла и уюта, поэтому будем признательны, если вы поддержите цветовую гамму нашей свадьбы. </p>
+            <p><strong>Дамы:</strong> Коктейльные платья или вечерние наряды. Мы просим вас воздержаться от чёрного и белого цветов, а также от ярких оттенков и принтов в пользу спокойных пастельных тонов</p>
             <p><strong>Мужчины:</strong> Костюмы или смокинги</p>
-            <p style="margin-top: 20px; font-style: italic;">Пожалуйста, избегайте белого цвета, так как он зарезервирован для невесты.</p>
             <div class="color-palette">
                 <div class="color-box" style="background: #d4af37;"></div>
                 <div class="color-box" style="background: #2c3e50;"></div>

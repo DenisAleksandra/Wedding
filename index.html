@@ -20,11 +20,7 @@
             letter-spacing: 0.05em;
             color: #8C867A;
             overflow-x: hidden;
-            background-image: url('./narisovan2.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            background-color: #E6E7DF;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -46,6 +42,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            z-index: 10;
         }
 
         .video-background {
@@ -60,6 +57,25 @@
             z-index: -1;
             object-fit: cover;
             object-position: center;
+        }
+
+        .background-video-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -2;
+            object-fit: cover;
+            object-position: center;
+            pointer-events: none;
+        }
+
+        .header-section {
+            position: relative;
+            z-index: 1;
         }
 
         /* Enhanced responsive video handling for different screen sizes */
@@ -476,8 +492,14 @@
 
     <!-- Header Section with Video Background -->
     <section class="header-section">
-        <!-- Изображение на фоне -->
-        <img src="./narisovan.jpg" alt="Фон" class="video-background">
+        <!-- Видео на фоне -->
+        <video id="bgVideo" autoplay muted loop playsinline preload="auto" class="video-background" webkit-playsinline>
+            <source src="./video_flower1.mp4" type="video/mp4">
+            <source src="video_flower1.mp4" type="video/mp4">
+            <source src="./video_flower1.MP4" type="video/mp4">
+            <source src="video_flower1.MP4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
 
         <!-- Полупрозрачный overlay для текста -->
         <div class="header-overlay"></div>
@@ -497,6 +519,14 @@
             ♪
         </button>
     </section>
+
+    <!-- Фоновое видео для второй части -->
+    <video id="bgVideo2" autoplay muted loop playsinline preload="auto" class="background-video-fixed" webkit-playsinline>
+        <source src="./video_flower2.mp4" type="video/mp4">
+        <source src="video_flower2.mp4" type="video/mp4">
+        <source src="./video_flower2.MP4" type="video/mp4">
+        <source src="video_flower2.MP4" type="video/mp4">
+    </video>
 
     <!-- Location and Timeline Section -->
     <section class="section" id="location-timeline">
@@ -707,6 +737,49 @@
                 video.addEventListener('loadstart', () => console.log('Видео начало загружаться'));
                 video.addEventListener('loadeddata', () => console.log('Видео данные загружены'));
                 video.addEventListener('canplay', () => console.log('Видео готово к воспроизведению'));
+            }
+
+            // Video autoplay handling для второго видео (фон второй части)
+            const video2 = document.getElementById('bgVideo2');
+
+            if (video2) {
+                // Функция для запуска второго видео
+                function playVideo2() {
+                    if (video2 && video2.paused) {
+                        const playPromise = video2.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.log('Автоплей второго видео заблокирован:', error);
+                            });
+                        }
+                    }
+                }
+
+                // Попытка запуска при различных событиях загрузки
+                video2.addEventListener('loadeddata', playVideo2);
+                video2.addEventListener('canplay', playVideo2);
+                video2.addEventListener('canplaythrough', playVideo2);
+                video2.addEventListener('loadedmetadata', playVideo2);
+
+                // Попытка запустить сразу после небольшой задержки
+                setTimeout(playVideo2, 100);
+
+                // Гарантированный запуск видео при первом взаимодействии пользователя
+                const userInteractionEvents = ['click', 'touchstart', 'keydown', 'scroll', 'mousemove'];
+                let hasInteracted2 = false;
+
+                userInteractionEvents.forEach(eventType => {
+                    document.addEventListener(eventType, function() {
+                        if (!hasInteracted2) {
+                            hasInteracted2 = true;
+                            playVideo2();
+                        }
+                    }, { once: true });
+                });
+
+                // Также запускаем при любом клике/тапе
+                document.addEventListener('click', playVideo2);
+                document.addEventListener('touchstart', playVideo2, { passive: true });
             }
 
             // Простая кнопка для запуска музыки

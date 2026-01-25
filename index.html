@@ -741,7 +741,7 @@
     <section class="section" id="confirmation">
         <h2 class="section-title">Подтверждение</h2>
         <div class="form-container">
-            <form id="rsvp-form" action="https://formsubmit.co/wayisright@gmail.com" method="POST">
+            <form id="rsvp-form" action="https://formsubmit.co/dcf2fc180f312352fe65d0e28e08fa47" method="POST">
                 <div class="form-group">
                     <label for="name">Полное имя *</label>
                     <input type="text" id="name" name="name" required>
@@ -948,10 +948,10 @@
                 }
                 submitData.append('_captcha', 'false');
                 submitData.append('_next', window.location.href.split('?')[0]);
-                submitData.append('_autoresponse', 'Спасибо за ваш ответ!');
+                submitData.append('_autoresponse', 'Спасибо! Ваш ответ отправлен!');
 
                 // Send form data
-                const response = await fetch('https://formsubmit.co/ajax/wayisright@gmail.com', {
+                const response = await fetch('https://formsubmit.co/ajax/dcf2fc180f312352fe65d0e28e08fa47', {
                     method: 'POST',
                     body: submitData
                 });

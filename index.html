@@ -32,6 +32,12 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
         body {
             font-family: 'Poiret One', sans-serif;
             line-height: 1.8;
@@ -148,6 +154,9 @@
             font-weight: normal;
             line-height: 1.1;
             color: #54463e;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .header-content p {
@@ -203,6 +212,9 @@
             color: #4A4741;
             position: relative;
             padding-bottom: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .section-title::after {
@@ -564,6 +576,23 @@
 
             .header-content {
                 padding: 15px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .header-content h1 {
+                font-size: clamp(2.5rem, 10vw, 6rem);
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .section-title {
+                font-size: clamp(2rem, 8vw, 5rem);
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
             }
         }
 

@@ -6,8 +6,26 @@
     <title>Приглашение на свадьбу</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parisienne&family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://getfonts.net/allfont.css?fonts=avalon-medium" rel="stylesheet" type="text/css" />
+    <link href="https://getfonts.net/allfont.css?fonts=scriptorama" rel="stylesheet" type="text/css" />
     <style>
+        @font-face {
+            font-family: 'Great Vibes';
+            src: url('./Great_Vibes/GreatVibes-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Viaoda Libre';
+            src: url('./Viaoda_Libre/ViaodaLibre-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            color: #8A7F75;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,17 +33,17 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poiret One', sans-serif;
             line-height: 1.8;
             letter-spacing: 0.05em;
-            color: #8C867A;
+            color: #382B24;
             overflow-x: hidden;
             background-color: #E6E7DF;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant', serif;
-            color: #4A4741;
+            font-family: 'Scriptorama', cursive;
+            color: #54463e;
         }
 
         strong {
@@ -123,9 +141,13 @@
         }
 
         .header-content h1 {
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            margin-bottom: 20px;
+            font-family: 'Scriptorama', cursive;
+            font-size: clamp(4rem, 14vw, 10rem);
+            margin-bottom: 60px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: normal;
+            line-height: 1.1;
+            color: #54463e;
         }
 
         .header-content p {
@@ -140,7 +162,7 @@
             transform: translateX(-50%);
             z-index: 1;
             color: white;
-            font-size: 1.5rem;
+            font-size: 2.25rem;
             animation: bounce 2s infinite;
         }
 
@@ -175,7 +197,7 @@
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(4rem, 10vw, 7rem);
             text-align: center;
             margin-bottom: 50px;
             color: #4A4741;
@@ -184,14 +206,7 @@
         }
 
         .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(to right, #5B9BD5, #8BB5E8);
+            display: none;
         }
 
         /* Location and Timeline Section */
@@ -211,7 +226,9 @@
         }
 
         .location-box, .timeline-box {
-            background: #f9f9f9;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -228,7 +245,7 @@
         }
 
         .location-box h3, .timeline-box h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(3rem, 6vw, 4rem);
             margin-bottom: 20px;
             color: #4A4741;
         }
@@ -279,9 +296,9 @@
         }
 
         .timeline-time {
-            font-weight: bold;
+            font-weight: normal;
             color: #d4af37;
-            font-size: 1.1rem;
+            font-size: 1.65rem;
         }
 
         .timeline-event {
@@ -319,7 +336,9 @@
         }
 
         .program-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 0;
             text-align: center;
@@ -343,7 +362,8 @@
         }
 
         .program-card h4 {
-            font-size: 1.5rem;
+            font-family: 'Poiret One', sans-serif;
+            font-size: 2rem;
             margin-bottom: 15px;
             flex-shrink: 0;
         }
@@ -360,7 +380,9 @@
             max-width: 800px;
             margin: 40px auto 0;
             text-align: center;
-            background: #f9f9f9;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 40px;
             border-radius: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -377,12 +399,13 @@
         }
 
         .dresscode-content h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-family: 'Poiret One', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
             margin-bottom: 20px;
         }
 
         .dresscode-content p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #555;
             line-height: 1.8;
             margin-bottom: 15px;
@@ -407,7 +430,9 @@
         .form-container {
             max-width: 600px;
             margin: 40px auto 0;
-            background: #f9f9f9;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 40px;
             border-radius: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -430,7 +455,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
+            font-weight: normal;
             color: #4A4741;
         }
 
@@ -441,7 +466,7 @@
             padding: 12px;
             border: 2px solid #ddd;
             border-radius: 0;
-            font-size: 1rem;
+            font-size: 1.5rem;
             font-family: inherit;
             transition: border-color 0.3s ease;
         }
@@ -450,7 +475,7 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #d4af37;
+            border-color: rgba(91, 155, 213, 0.9);
         }
 
         .form-group textarea {
@@ -461,14 +486,19 @@
         .submit-btn {
             width: 100%;
             padding: 15px;
-            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            background: rgba(91, 155, 213, 0.9);
             color: white;
             border: none;
             border-radius: 0;
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-size: 1.65rem;
+            font-weight: normal;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .submit-btn:hover,
+        .submit-btn:active {
+            background: rgba(91, 155, 213, 1);
         }
 
         .submit-btn:hover {
@@ -559,23 +589,23 @@
     <!-- Header Section with Video Background -->
     <section class="header-section">
         <!-- Изображение на фоне первой части -->
-        <img src="./effect2.jpg" alt="Фон" class="video-background">
+        <img src="./mainflower.jpg" alt="Фон" class="video-background">
 
         <!-- Полупрозрачный overlay для текста -->
         <div class="header-overlay"></div>
 
         <!-- Текст поверх видео -->
         <div class="header-content">
-            <h1><Будь с нами в этот день!</h1>
-            <p style="font-size: clamp(1rem, 3vw, 1.8rem); margin-top: 20px;">Денис и Александра</p>
-            <p style="font-size: clamp(0.9rem, 2.5vw, 1.5rem); margin-top: 10px;">28 июля 2026 года</p>
+            <h1>Стань частью этого дня!</h1>
+            <p style="font-family: 'Manrope', sans-serif; font-size: clamp(1rem, 3vw, 1.8rem); margin-top: 60px; color: #382B24;">Денис и Александра</p>
+            <p style="font-family: 'Manrope', sans-serif; font-size: clamp(1rem, 3vw, 1.5rem); margin-top: -5px; color: #382B24;">28 июля 2026 года</p>
         </div>
 
         <!-- Индикация скролла -->
         <div class="scroll-indicator">↓</div>
         
         <!-- Кнопка запуска музыки -->
-        <button id="playMusicBtn" style="position: absolute; top: 20px; right: 20px; z-index: 10; background: rgba(91, 155, 213, 0.9); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.3s;">
+        <button id="playMusicBtn" style="position: absolute; top: 20px; right: 20px; z-index: 10; background: rgba(91, 155, 213, 0.9); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 36px; cursor: pointer; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.3s;">
             ♪
         </button>
     </section>
@@ -662,9 +692,9 @@
     <section class="section" id="confirmation">
         <h2 class="section-title">Подтверждение</h2>
         <div class="form-container">
-            <div id="personalized-greeting" style="text-align: center; margin-bottom: 20px; font-size: 1.2rem; color: #2c3e50; display: none;">
+            <div id="personalized-greeting" style="text-align: center; margin-bottom: 20px; font-size: 1.8rem; color: #2c3e50; display: none;">
                 <p>Дорогой(ая) <strong id="guest-name-display"></strong>,</p>
-                <p style="font-size: 1rem; margin-top: 10px; color: #666;">Мы очень рады праздновать вместе с тобой!</p>
+                <p style="font-size: 1.5rem; margin-top: 10px; color: #666;">Мы очень рады праздновать вместе с тобой!</p>
             </div>
             <form id="rsvp-form" action="https://formsubmit.co/wayisright@gmail.com" method="POST">
                 <div class="form-group">

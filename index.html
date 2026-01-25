@@ -802,14 +802,6 @@
             if (nameParam) {
                 const decodedName = decodeURIComponent(nameParam.replace(/\+/g, ' '));
                 nameField.value = decodedName;
-                
-                // Show personalized greeting
-                const greetingDiv = document.getElementById('personalized-greeting');
-                const guestNameDisplay = document.getElementById('guest-name-display');
-                if (greetingDiv && guestNameDisplay) {
-                    guestNameDisplay.textContent = decodedName;
-                    greetingDiv.style.display = 'block';
-                }
             }
             
             // Add event listeners to check form validity
@@ -955,6 +947,8 @@
                     submitData.append('Сообщение', formData.message);
                 }
                 submitData.append('_captcha', 'false');
+                submitData.append('_next', window.location.href.split('?')[0]);
+                submitData.append('_autoresponse', 'Спасибо за ваш ответ!');
 
                 // Send form data
                 const response = await fetch('https://formsubmit.co/ajax/wayisright@gmail.com', {

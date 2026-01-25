@@ -75,7 +75,14 @@
 
         .header-section {
             position: relative;
-            z-index: 1;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10;
         }
 
         /* Enhanced responsive video handling for different screen sizes */
@@ -154,6 +161,17 @@
             padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 1024px) {
+            .section {
+                padding: 5vw 3vw;
+                max-width: 95vw;
+                width: 100%;
+                box-sizing: border-box;
+            }
         }
 
         .section-title {
@@ -173,7 +191,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background: linear-gradient(to right, #d4af37, #f4e4bc);
+            background: linear-gradient(to right, #5B9BD5, #8BB5E8);
         }
 
         /* Location and Timeline Section */
@@ -185,6 +203,13 @@
             margin-top: 40px;
         }
 
+        @media (min-width: 1024px) {
+            .location-timeline {
+                gap: 3vw;
+                margin-top: 3vw;
+            }
+        }
+
         .location-box, .timeline-box {
             background: #f9f9f9;
             padding: 30px;
@@ -193,6 +218,13 @@
             max-width: 600px;
             width: 100%;
             color: #8C867A;
+        }
+
+        @media (min-width: 1024px) {
+            .location-box, .timeline-box {
+                padding: 2.5vw;
+                max-width: 50vw;
+            }
         }
 
         .location-box h3, .timeline-box h3 {
@@ -267,6 +299,13 @@
             grid-auto-rows: 1fr;
         }
 
+        @media (min-width: 1024px) {
+            .program-grid {
+                gap: 2.5vw;
+                margin-top: 3vw;
+            }
+        }
+
         @media (min-width: 768px) {
             .program-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -290,6 +329,13 @@
             flex-direction: column;
             height: 100%;
             min-height: 200px;
+        }
+
+        @media (min-width: 1024px) {
+            .program-card {
+                padding: 2.5vw;
+                min-height: 15vh;
+            }
         }
 
         .program-card:hover {
@@ -318,6 +364,16 @@
             padding: 40px;
             border-radius: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+            .dresscode-content {
+                max-width: 70vw;
+                width: 100%;
+                margin: 3vw auto 0;
+                padding: 3vw;
+                box-sizing: border-box;
+            }
         }
 
         .dresscode-content h3 {
@@ -355,6 +411,16 @@
             padding: 40px;
             border-radius: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+            .form-container {
+                max-width: 50vw;
+                width: 100%;
+                margin: 3vw auto 0;
+                padding: 3vw;
+                box-sizing: border-box;
+            }
         }
 
         .form-group {
@@ -492,21 +558,15 @@
 
     <!-- Header Section with Video Background -->
     <section class="header-section">
-        <!-- Видео на фоне -->
-        <video id="bgVideo" autoplay muted loop playsinline preload="auto" class="video-background" webkit-playsinline>
-            <source src="./video_flower1.mp4" type="video/mp4">
-            <source src="video_flower1.mp4" type="video/mp4">
-            <source src="./video_flower1.MP4" type="video/mp4">
-            <source src="video_flower1.MP4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
+        <!-- Изображение на фоне первой части -->
+        <img src="./effect2.jpg" alt="Фон" class="video-background">
 
         <!-- Полупрозрачный overlay для текста -->
         <div class="header-overlay"></div>
 
         <!-- Текст поверх видео -->
         <div class="header-content">
-            <h1>Будь с нами в этот день!</h1>
+            <h1><Будь с нами в этот день!</h1>
             <p style="font-size: clamp(1rem, 3vw, 1.8rem); margin-top: 20px;">Денис и Александра</p>
             <p style="font-size: clamp(0.9rem, 2.5vw, 1.5rem); margin-top: 10px;">28 июля 2026 года</p>
         </div>
@@ -515,17 +575,17 @@
         <div class="scroll-indicator">↓</div>
         
         <!-- Кнопка запуска музыки -->
-        <button id="playMusicBtn" style="position: absolute; top: 20px; right: 20px; z-index: 10; background: rgba(212, 175, 55, 0.9); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.3s;">
+        <button id="playMusicBtn" style="position: absolute; top: 20px; right: 20px; z-index: 10; background: rgba(91, 155, 213, 0.9); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.3s;">
             ♪
         </button>
     </section>
 
     <!-- Фоновое видео для второй части -->
     <video id="bgVideo2" autoplay muted loop playsinline preload="auto" class="background-video-fixed" webkit-playsinline>
-        <source src="./video_flower2.mp4" type="video/mp4">
-        <source src="video_flower2.mp4" type="video/mp4">
-        <source src="./video_flower2.MP4" type="video/mp4">
-        <source src="video_flower2.MP4" type="video/mp4">
+        <source src="./background.mp4" type="video/mp4">
+        <source src="background.mp4" type="video/mp4">
+        <source src="./background.MP4" type="video/mp4">
+        <source src="background.MP4" type="video/mp4">
     </video>
 
     <!-- Location and Timeline Section -->
@@ -684,61 +744,6 @@
             // Initial check
             checkFormValidity();
 
-            // Video autoplay handling - улучшенная версия
-            const video = document.getElementById('bgVideo');
-
-            if (video) {
-                // Функция для запуска видео
-                function playVideo() {
-                    if (video && video.paused) {
-                        const playPromise = video.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(error => {
-                                console.log('Автоплей заблокирован:', error);
-                            });
-                        }
-                    }
-                }
-
-                // Попытка запуска при различных событиях загрузки
-                video.addEventListener('loadeddata', playVideo);
-                video.addEventListener('canplay', playVideo);
-                video.addEventListener('canplaythrough', playVideo);
-                video.addEventListener('loadedmetadata', playVideo);
-
-                // Попытка запустить сразу после небольшой задержки
-                setTimeout(playVideo, 100);
-
-                // Гарантированный запуск видео при первом взаимодействии пользователя
-                const userInteractionEvents = ['click', 'touchstart', 'keydown', 'scroll', 'mousemove'];
-                let hasInteracted = false;
-
-                userInteractionEvents.forEach(eventType => {
-                    document.addEventListener(eventType, function() {
-                        if (!hasInteracted) {
-                            hasInteracted = true;
-                            playVideo();
-                        }
-                    }, { once: true });
-                });
-
-                // Также запускаем при любом клике/тапе
-                document.addEventListener('click', playVideo);
-                document.addEventListener('touchstart', playVideo, { passive: true });
-
-                // Обработка ошибок загрузки
-                video.addEventListener('error', function(e) {
-                    console.error('Ошибка загрузки видео:', e);
-                    console.log('Проверьте путь к файлу: IMG_0341.MP4');
-                    console.log('Текущий src:', video.currentSrc || video.src);
-                });
-
-                // Логирование для отладки
-                video.addEventListener('loadstart', () => console.log('Видео начало загружаться'));
-                video.addEventListener('loadeddata', () => console.log('Видео данные загружены'));
-                video.addEventListener('canplay', () => console.log('Видео готово к воспроизведению'));
-            }
-
             // Video autoplay handling для второго видео (фон второй части)
             const video2 = document.getElementById('bgVideo2');
 
@@ -827,10 +832,10 @@
             });
             
             // На мобильных сразу включаем видео и аудио при взаимодействии
-            const video = document.getElementById('bgVideo');
+            const video2 = document.getElementById('bgVideo2');
             const audio = document.getElementById('bgAudio');
-            if (video && video.paused) {
-                video.play().catch(() => {});
+            if (video2 && video2.paused) {
+                video2.play().catch(() => {});
             }
             if (audio && audio.paused) {
                 audio.play().catch((error) => {
